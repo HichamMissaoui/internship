@@ -19,8 +19,9 @@ import javax.validation.constraints.NotNull;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
 @Entity
-@Table(name = "requests")
-public class Request {
+@Table(name = "offers")
+public class Offer {
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
@@ -56,6 +57,10 @@ public class Request {
 		this.id = id;
 	}
 
+	public User getUser() {
+		return user;
+	}
+
 	public Date getCreated_at() {
 		return created_at;
 	}
@@ -80,10 +85,6 @@ public class Request {
 		this.dateEnd = dateEnd;
 	}
 
-	public User getUser() {
-		return user;
-	}
-
 	public void setUser(User user) {
 		this.user = user;
 	}
@@ -103,7 +104,4 @@ public class Request {
 	public void setTechnologies(Set<Technology> technologies) {
 		this.technologies = technologies;
 	}
-	
-	
-
 }

@@ -12,6 +12,7 @@ import com.spring.internship.payload.SignUpRequest;
 import com.spring.internship.repository.RoleRepository;
 import com.spring.internship.repository.UserRepository;
 import com.spring.internship.security.TokenProvider;
+import com.spring.internship.service.IRoleService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -39,7 +40,7 @@ public class AuthController {
     private UserRepository userRepository;
     
     @Autowired
-    private RoleRepository roleRepository;
+    private IRoleService roleService;
 
     @Autowired
     private PasswordEncoder passwordEncoder;
@@ -81,7 +82,7 @@ public class AuthController {
         user.setPassword(signUpRequest.getPassword());
         user.setProvider(AuthProvider.local);
         
-        Role userRole = roleRepository.findByName(RoleName.ROLE_USER)
+        Role userRole = roleService.findByName(RoleName.ROLE_USER)
                 .orElseThrow(() -> new RuntimeException("User Role not set."));
 
         user.setRoles(Collections.singleton(userRole));
