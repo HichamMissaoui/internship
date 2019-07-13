@@ -1,7 +1,7 @@
 spring:
     datasource:
-        url: jdbc:mysql://localhost:3306/internship?useSSL=false&serverTimezone=UTC&createDatabaseIfNotExist=true
-        username: root
+        url: jdbc:mysql://url:port/internship?useSSL=false&serverTimezone=UTC&createDatabaseIfNotExist=true
+        username: 
         password: 
         initialization-mode: always
 
@@ -45,10 +45,10 @@ spring:
               userInfoUri: https://graph.facebook.com/v3.0/me?fields=id,first_name,middle_name,last_name,name,email,verified,is_verified,picture.width(250).height(250)
 app:
   auth:
-    tokenSecret: 926D96C90030DD58429D2751AC1BDBBC
+    tokenSecret: 
     tokenExpirationMsec: 864000000
   oauth2:
     authorizedRedirectUris:
-      - http://localhost:4200/oauth2/redirect
+      - http://url:port/oauth2/redirect
       - myandroidapp://oauth2/redirect
       
